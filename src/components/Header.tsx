@@ -3,6 +3,7 @@ import React from 'react';
 import { Search, ShoppingCart, ArrowLeft, Mic } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -10,12 +11,14 @@ const Header = () => {
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center">
           <div className="mr-4">
-            <img 
-              src="/lovable-uploads/3ee8e5df-6444-4e79-a21a-1461df31e24d.png" 
-              alt="Henkel Logo" 
-              className="h-16 object-contain"
-              style={{ clipPath: 'inset(0 75% 0 0)' }}
-            />
+            <Link to="/">
+              <img 
+                src="/lovable-uploads/3ee8e5df-6444-4e79-a21a-1461df31e24d.png" 
+                alt="Henkel Logo" 
+                className="h-16 object-contain"
+                style={{ clipPath: 'inset(0 75% 0 0)' }}
+              />
+            </Link>
           </div>
           
           <div className="relative w-[350px]">
@@ -31,19 +34,21 @@ const Header = () => {
         <div className="text-lg font-medium ml-6">经销商：上海xxxxxxx</div>
         
         <div className="flex items-center gap-2">
-          <Button variant="outline" className="border-gray-300">
-            我的订单
+          <Button variant="outline" className="border-gray-300" asChild>
+            <Link to="/orders">我的订单</Link>
           </Button>
           
-          <Button variant="outline" className="border-gray-300 flex items-center gap-2">
-            <div className="w-5 h-5 rounded-full bg-henkel-red flex items-center justify-center">
-              <ShoppingCart className="h-3 w-3 text-white" />
-            </div>
-            购物车
+          <Button variant="outline" className="border-gray-300 flex items-center gap-2" asChild>
+            <Link to="/cart">
+              <div className="w-5 h-5 rounded-full bg-henkel-red flex items-center justify-center">
+                <ShoppingCart className="h-3 w-3 text-white" />
+              </div>
+              购物车
+            </Link>
           </Button>
           
-          <Button variant="outline" className="border-gray-300">
-            返回
+          <Button variant="outline" className="border-gray-300" asChild>
+            <Link to="/">返回</Link>
           </Button>
         </div>
       </div>
