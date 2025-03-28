@@ -6,6 +6,7 @@ import { Minus, Plus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+import CheckoutDialogs from '@/components/CheckoutDialogs';
 
 interface CartItem {
   id: number;
@@ -39,6 +40,7 @@ const Cart = () => {
       clipPath: 'inset(10% 60% 10% 23%)'
     }
   ]);
+  const [showCheckoutDialog, setShowCheckoutDialog] = useState(false);
 
   const updateQuantity = (id: number, change: number) => {
     setCartItems(prev => 
@@ -64,8 +66,12 @@ const Cart = () => {
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const handleCheckout = () => {
-    toast.success('订单已提交');
-    navigate('/orders');
+    setShowCheckoutDialog(true);
+  };
+
+  const handleOrderConfirm = () => {
+    // This will be called after the final confirmation with signature
+    setCartItems([]);
   };
 
   return (
@@ -155,6 +161,20 @@ const Cart = () => {
           </div>
         </main>
       </div>
+
+      {/* Checkout Dialog System */}
+      <CheckoutDialogs
+        open={showCheckoutDialog}
+        onOpenChange={setShowCheckoutDialog}
+        total={calculateTotal()}
+        items={cartItems.map(item => ({
+          id: item.id,
+          name: item.name,
+          quantity: item.quantity,
+          price: item.price
+        }))}
+        onConfirm={handleOrderConfirm}
+      />
     </div>
   );
 };

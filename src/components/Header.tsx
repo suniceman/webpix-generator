@@ -13,10 +13,9 @@ const Header = () => {
           <div className="mr-4">
             <Link to="/">
               <img 
-                src="/lovable-uploads/3ee8e5df-6444-4e79-a21a-1461df31e24d.png" 
+                src="/lovable-uploads/b36d7057-c175-41f3-b09e-bfbd4a9a7df1.png" 
                 alt="Henkel Logo" 
-                className="h-16 object-cover"
-                style={{ objectPosition: 'left center' }}
+                className="h-12 object-contain"
               />
             </Link>
           </div>
