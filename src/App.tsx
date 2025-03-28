@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Orders from "./pages/Orders";
+import OrderDetail from "./pages/OrderDetail";
 import Cart from "./pages/Cart";
 import Schwarzkopf from "./pages/Schwarzkopf";
 import Syoss from "./pages/Syoss";
@@ -26,6 +27,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/order-detail" element={<OrderDetail />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/schwarzkopf" element={<Schwarzkopf />} />
           <Route path="/syoss" element={<Syoss />} />

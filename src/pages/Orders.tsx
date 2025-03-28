@@ -2,8 +2,12 @@
 import React from 'react';
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
+import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const Orders = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen flex flex-col bg-henkel-lightGray">
       <Header />
@@ -32,7 +36,15 @@ const Orders = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">已完成</span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-blue-600">查看详情</td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <Button 
+                        variant="link" 
+                        className="text-blue-600 p-0 h-auto font-normal"
+                        onClick={() => navigate('/order-detail')}
+                      >
+                        查看详情
+                      </Button>
+                    </td>
                   </tr>
                   <tr>
                     <td className="px-6 py-4 whitespace-nowrap">HK-2023-002</td>
@@ -41,7 +53,15 @@ const Orders = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">配送中</span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-blue-600">查看详情</td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <Button 
+                        variant="link" 
+                        className="text-blue-600 p-0 h-auto font-normal"
+                        onClick={() => navigate('/order-detail')}
+                      >
+                        查看详情
+                      </Button>
+                    </td>
                   </tr>
                   <tr>
                     <td className="px-6 py-4 whitespace-nowrap">HK-2023-003</td>
@@ -50,7 +70,15 @@ const Orders = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">处理中</span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-blue-600">查看详情</td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <Button 
+                        variant="link" 
+                        className="text-blue-600 p-0 h-auto font-normal"
+                        onClick={() => navigate('/order-detail')}
+                      >
+                        查看详情
+                      </Button>
+                    </td>
                   </tr>
                 </tbody>
               </table>

@@ -1,9 +1,9 @@
 
 import React from 'react';
-import { Search, ShoppingCart, ArrowLeft, Mic } from 'lucide-react';
-import { Input } from '@/components/ui/input';
+import { ShoppingCart, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 const Header = () => {
   return (
@@ -15,20 +15,13 @@ const Header = () => {
               <img 
                 src="/lovable-uploads/3ee8e5df-6444-4e79-a21a-1461df31e24d.png" 
                 alt="Henkel Logo" 
-                className="h-16 object-contain"
-                style={{ clipPath: 'inset(0 75% 0 0)' }}
+                className="h-16 object-cover"
+                style={{ objectPosition: 'left center' }}
               />
             </Link>
           </div>
           
-          <div className="relative w-[350px]">
-            <Input
-              className="pl-10 pr-10 py-2 h-[42px] rounded-sm"
-              placeholder="输入产品序号/产品名称"
-            />
-            <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-            <Mic className="absolute right-2 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-          </div>
+          <SearchBar />
         </div>
         
         <div className="text-lg font-medium ml-6">经销商：上海xxxxxxx</div>
